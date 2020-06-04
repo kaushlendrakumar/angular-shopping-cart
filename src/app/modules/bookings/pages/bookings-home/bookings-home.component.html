@@ -1,0 +1,60 @@
+<!-- Hi from booking home
+
+<div>
+    <button (click)="updateCartItem('add')">Add (+)</button>
+</div>
+
+<div>
+    <button (click)="updateCartItem('del')">Del (-)</button>
+</div> -->
+
+<div class="container-fluid listing-conatiner">
+    <div class="row listing-row">
+        <div class="col-md-3 col-xs-12 listing-left-col">
+            <nav class="navbar navbar-expand-lg navbar-light navigation-container">
+                <a class="navbar-brand d-block d-md-none">Menu</a>
+                <button class="navbar-toggler menu-toggle-btn" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>              
+                <div class="collapse navbar-collapse navigation-content-container" id="navbarSupportedContent">
+                    <ul class="list-group">
+                        <li class="list-group-item list-group-item-action"
+                            [ngClass]="pageDetails?.filterDetails?.filterBy === '' ? 'active' : ''"
+                            (click)="fiterChange('')">All Categories</li>
+                        <li class="list-group-item list-group-item-action"
+                            [ngClass]="pageDetails?.filterDetails?.filterBy === item.key ? 'active' : ''"
+                            (click)="fiterChange(item.key)"
+                            *ngFor="let item of pageDetails?.filterDetails?.filterList | keyvalue">{{item.value}}</li>
+                    </ul>
+                </div>
+              </nav>
+        </div>
+        <div class="col-md-8 listing-right-col">
+            <div class="row shopping-list-row">
+                <div class="col-md-6 col-xs-12 shopping-list-col"
+                    *ngFor="let itemDetails of pageDetails?.details?.itemListShow; trackBy: index">
+                    <div class="card item-card">
+                        <img *ngIf="!itemDetails?.img" class="card-img-top" [src]="pageDetails?.details.notFoundImage" alt="Card image cap">
+                        <img *ngIf="itemDetails?.img" class="card-img-top" [src]="itemDetails.img" alt="Card image cap">
+                        <div class="card-body">
+                          <h5 class="card-title">{{itemDetails?.name}}</h5>
+                          <p class="card-text">${{itemDetails.price | number : '.2-2'}}</p>
+                        </div>
+                        <div class="card-footer">
+                            <div *ngIf="itemDetails?.selectedCount === 0">
+                                <button type="button" (click)="updateCartItem('add', itemDetails)" class="btn btn-secondary add-to-card-btn">Add to card</button>
+                            </div>
+                            <div
+                                *ngIf="itemDetails?.selectedCount > 0" 
+                                class="d-flex justify-content-between align-items-center action-item-wrap">
+                                <button type="button" (click)="updateCartItem('del', itemDetails)" class="btn btn-secondary item-add-btn">-</button>
+                                <span>{{itemDetails?.selectedCount}}</span>
+                                <button type="button" (click)="updateCartItem('add', itemDetails)" class="btn btn-secondary item-remove-btn">+</button>
+                            </div>
+                        </div>
+                      </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

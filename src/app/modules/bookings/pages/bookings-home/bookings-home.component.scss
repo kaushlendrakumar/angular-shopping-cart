@@ -1,0 +1,57 @@
+.listing-conatiner{
+    padding: 64px 0px 0px 0px;
+    .listing-row{
+        margin: 0px;
+        // start listing-left-col
+        .listing-left-col{
+            padding: 12px;
+            .navigation-container{
+                .navigation-content-container{
+                    ul{
+                        width: 100%;
+                        li{
+                            cursor: pointer;
+                        }
+                    }
+                }
+            }
+            .menu-toggle-btn{
+                margin-bottom: 12px;
+            }
+        }
+        // end listing-left-col
+        // start listing-right-col
+        .listing-right-col{
+            padding: 8px 12px;
+            .shopping-list-row{
+                margin: 0px;
+                .shopping-list-col{
+                    padding: 12px;
+                    .item-card{
+                        width: 100% !important;
+                        img{
+                            height: 240px;
+                        }
+                        .card-body{
+                        }
+                        .card-footer{
+                            padding: 0px;
+                            background-color: #ffffff;
+                            .add-to-card-btn{
+                                width: 100%;
+                                text-transform: uppercase;
+                            }
+                            .action-item-wrap{
+                                button{
+                                    width: 50px;
+                                    font-weight: bold;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        // end listing-right-col
+    }
+}
